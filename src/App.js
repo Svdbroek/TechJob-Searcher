@@ -10,10 +10,10 @@ function App() {
       <header className="App-header">
         <Header />
       </header>
-      <body>
+      <main>
         <Feed />
         <Sidebar/>
-      </body>
+      </main>
     </div>
   );
 }

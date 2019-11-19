@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./JobAplication.css"
 import DescriptionBox from "./DescriptionBox";
 export default class JobAplication extends Component {
+  
   render() {
     return (
       <div className="JobBlock">
@@ -22,7 +23,7 @@ export default class JobAplication extends Component {
             {" "}
             <b>description</b>
           </h4>
-          <DescriptionBox />
+          <DescriptionBox description = {this.props.description} />
           {/* {this.props.description} */}
         </div>
       </div>

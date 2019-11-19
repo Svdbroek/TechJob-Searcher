@@ -13,7 +13,7 @@ export default class Feed extends Component {
       console.log({data})
 
     return (
-    <div>
+    <div className ="feed">
 
         {data.map(jobAdv => <JobAplication title={jobAdv.title} company={jobAdv.company} location={jobAdv.location} description={jobAdv.description} logo={jobAdv.company_logo}/>)}
         

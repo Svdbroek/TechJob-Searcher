@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./DescriptionBox.css"
 
 export default class DescriptionBox extends Component{
     state={
@@ -23,7 +24,7 @@ export default class DescriptionBox extends Component{
 </div>
         } else {
             return <div>
-                 <div dangerouslySetInnerHTML={{__html:this.text.substring(0,20)}}></div>
+                 <div className="textTeaser" dangerouslySetInnerHTML={{__html:this.text.substring(0,400)}}></div>
 <button onClick={()=> {this.showMoreButton()}} >show more</button>
 </div>
         }

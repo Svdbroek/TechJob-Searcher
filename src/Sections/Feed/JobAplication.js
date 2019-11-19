@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./JobAplication.css"
 import DescriptionBox from "./DescriptionBox";
 export default class JobAplication extends Component {
-  
+
   render() {
     return (
       <div className="JobBlock">
@@ -11,7 +11,7 @@ export default class JobAplication extends Component {
             <ul>
 
               <b>Company: </b>
-              {this.props.company} <img width="10%" src={this.props.logo} />
+              {this.props.company} <img width="30%" src={this.props.logo} />
             </ul>
             <ul>
               <b>Location:</b> {this.props.location}

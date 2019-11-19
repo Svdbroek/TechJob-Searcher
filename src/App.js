@@ -66,7 +66,7 @@ export default class App extends React.Component {
           ) : (
             <Feed data={data} />
           )}
-          <Sidebar />
+          <Sidebar handleSearch={this.filterByDate}/>
         </main>
       </div>
     );

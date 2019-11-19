@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Feed.css'
 import JobAplication from "./JobAplication";
 
 export default class Feed extends Component {

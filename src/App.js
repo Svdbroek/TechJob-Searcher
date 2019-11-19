@@ -10,12 +10,13 @@ export default class App extends React.Component {
     this.state = {
       originalData: [],
       data: [],
-      loading: false
+      loading: false,
+      ranOnce: false
     };
   }
 
   Fetcher = (jobTitle, Location) => {
-    this.setState({ loading: true });
+    this.setState({ loading: true, ranOnce: true});
     fetch(
       // "https://raw.githubusercontent.com/Svdbroek/TechJob-Searcher/master/src/jobs.json"
       `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${jobTitle}&location=${Location}`
@@ -29,6 +30,8 @@ export default class App extends React.Component {
 
   render() { 
     const { data } = this.state;
+    if (this.state.ranOnce === false){ return <div className ="startPage"><Header handleSearch={this.Fetcher} /></div>}
+
     if (this.state.loading === true){return<div className="App">
     <header className="App-header">
       <Header handleSearch={this.Fetcher} />

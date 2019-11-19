@@ -10,11 +10,12 @@ export default class Feed extends Component {
  
     render() {
       const {data} = this.props;
-    return (
-      
-    <div>
+      console.log({data})
 
-        {data.map(jobAdv => <JobAplication name={jobAdv.name}/>)}
+    return (
+    <div className ="feed">
+
+        {data.map(jobAdv => <JobAplication title={jobAdv.title} company={jobAdv.company} location={jobAdv.location} description={jobAdv.description} logo={jobAdv.company_logo}/>)}
         
     </div>)
 }

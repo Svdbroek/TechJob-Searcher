@@ -9,36 +9,43 @@ export default class App extends React.Component {
     super();
     this.state = {
       originalData: [],
-      data: []
+      data: [],
+      loading: false,
+      ranOnce: false
     };
+  }
 
+  Fetcher = (jobTitle, Location) => {
+    this.setState({ loading: true, ranOnce: true});
     fetch(
-      "https://raw.githubusercontent.com/Svdbroek/TechJob-Searcher/master/src/jobs.json"
+      // "https://raw.githubusercontent.com/Svdbroek/TechJob-Searcher/master/src/jobs.json"
+      `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?description=${jobTitle}&location=${Location}`
     )
       .then(response => response.json())
       .then(myJson => {
-        this.setState({ data: myJson, originalData: myJson });
+        console.log(myJson);
+        this.setState({ data: myJson, loading: false });
       });
-  }
-
-  filter = (jobTitle, region) => {
-    const { originalData } = this.state;
-    const result = originalData.filter(data => {
-      return (
-        data.title.toLowerCase().includes(jobTitle.toLowerCase()) &&
-        data.location.toLowerCase().includes(region.toLowerCase())
-      );
-    });
-    this.setState({ data: result });
   };
 
-  render() {
+  render() { 
     const { data } = this.state;
+    if (this.state.ranOnce === false){ return <div className ="startPage"><Header handleSearch={this.Fetcher} /></div>}
 
+    if (this.state.loading === true){return<div className="App">
+    <header className="App-header">
+      <Header handleSearch={this.Fetcher} />
+    </header>
+    <main>
+      <img src = "https://static-steelkiwi-dev.s3.amazonaws.com/media/filer_public/4e/07/4e07eece-7c84-46e2-944d-1a6b856d7b5f/463ff844-6f36-4ffe-b051-fea983d39223.gif"/>
+      <Sidebar />
+    </main>
+  </div> }
+    else
     return (
       <div className="App">
         <header className="App-header">
-          <Header handleSearch={this.filter} />
+          <Header handleSearch={this.Fetcher} />
         </header>
         <main>
           <Feed data={data} />

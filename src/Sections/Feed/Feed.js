@@ -1,13 +1,20 @@
 import React, { Component } from "react";
-import JobAplication from "./JobAplication"
+import JobAplication from "./JobAplication";
 
 export default class Feed extends Component {
-  data = [{name: "jopb 1"},
-                {name: "job2"}]
-  
+  // data = [{name: "jopb 1"},
+  //               {name: "job2"}]
+
+
+ 
     render() {
-    return <div>
-        {this.data.map(jobAdv => <JobAplication name={jobAdv.name}/>) }
-}        
-    </div>
-}}
+      const {data} = this.props;
+    return (
+      
+    <div>
+
+        {data.map(jobAdv => <JobAplication name={jobAdv.name}/>)}
+        
+    </div>)
+}
+}

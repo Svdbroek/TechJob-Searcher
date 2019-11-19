@@ -1,23 +1,31 @@
 import React, { Component } from "react";
+import "./DescriptionBox.css"
 
 export default class DescriptionBox extends Component{
     state={
         showMore : false
     }
 
-    text = "somestring asdfasdfa sdfasdasdfdasfasfasdfas fwasdfdfdusafydsfo aiusdyfcheioausdy fudausoiyfiuysd  dsauf dsf ais dyaiusdfidysafhiawehwaefjaadsfkjasdl;k" //get this from outside somehow? 
+    text = this.props.description
 
     showMoreButton =()=> {
         this.setState({showMore:true})
     }
 
+    showLessButton =()=> {
+        this.setState({showMore:false})
+    }
+
     render(){
         if (this.state.showMore)  {
-                return <div><p>{this.text}</p></div>
+                return <div><div dangerouslySetInnerHTML={{__html:this.text}}></div>
+<button onClick={()=> {this.showLessButton()}} >show less</button>
+
+</div>
         } else {
             return <div>
-<p>{this.text.substring(0,12)}</p>
-<button onClick={()=> {this.showMoreButton()}} >showMore</button>
+                 <div className="textTeaser" dangerouslySetInnerHTML={{__html:this.text.substring(0,400)}}></div>
+<button onClick={()=> {this.showMoreButton()}} >show more</button>
 </div>
         }
     }

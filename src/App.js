@@ -13,10 +13,12 @@ export default class App extends React.Component {
     };
 
     fetch(
-      "https://raw.githubusercontent.com/Svdbroek/TechJob-Searcher/master/src/jobs.json"
+      // "https://raw.githubusercontent.com/Svdbroek/TechJob-Searcher/master/src/jobs.json"
+     " https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?page=1&search=code"
     )
       .then(response => response.json())
       .then(myJson => {
+        console.log(myJson);
         this.setState({ data: myJson, originalData: myJson });
       });
   }

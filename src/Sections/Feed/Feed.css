@@ -1,0 +1,6 @@
+.feed {
+    display: Flex;
+    background-color: darkslategrey;
+    align-content: center;
+    flex-wrap: wrap;
+}

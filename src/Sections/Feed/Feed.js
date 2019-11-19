@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JobAplication from "./JobAplication"
+import './Feed.css'
 
 export default class Feed extends Component {
   data = [
@@ -57,8 +58,7 @@ export default class Feed extends Component {
     }]
   
     render() {
-    return <div>
-        {this.data.map(jobAdv => <JobAplication title={jobAdv.title} company={jobAdv.company} location={jobAdv.location} description={jobAdv.description} logo={jobAdv.company_logo}/>) }
-}        
+    return <div className="feed">
+        {this.data.map(jobAdv => <JobAplication title={jobAdv.title} company={jobAdv.company} location={jobAdv.location} description={jobAdv.description} logo={jobAdv.company_logo}/>) }       
     </div>
 }}

@@ -24,13 +24,12 @@ export default class App extends React.Component {
     )
       .then(response => response.json())
       .then(myJson => {
-        console.log(myJson);
         this.setState({ data: myJson, originalData: myJson, loading: false });
       });
   };
 
   filterByDate = date => {
-    const { originalData } = this.state;
+    const  originalData  = this.state.originalData; // instead of const {originalData = this.state} // not sure why it works now, though
     const result1 = originalData.filter(job => {
       const parsedCreatedAt = parse(
         job.created_at,

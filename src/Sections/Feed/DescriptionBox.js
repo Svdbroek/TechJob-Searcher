@@ -6,7 +6,9 @@ export default class DescriptionBox extends Component{
         showMore : false
     }
 
-    text = this.props.description
+    text = this.props.description.replace(/<\/?[^>]+(>|$)/g, "");
+
+
 
     showMoreButton =()=> {
         this.setState({showMore:true})
@@ -18,13 +20,13 @@ export default class DescriptionBox extends Component{
 
     render(){
         if (this.state.showMore)  {
-                return <div><div dangerouslySetInnerHTML={{__html:this.text}}></div>
+                return <div> {this.text}
 <button onClick={()=> {this.showLessButton()}} >show less</button>
 
 </div>
         } else {
             return <div>
-                 <div className="textTeaser" dangerouslySetInnerHTML={{__html:this.text.substring(0,400)}}></div>
+                 <div className="textTeaser">{this.text.substring(0,400)}</div>
 <button onClick={()=> {this.showMoreButton()}} >show more</button>
 </div>
         }

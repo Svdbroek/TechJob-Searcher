@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-
+import "./Header.css"
 export default class Header extends Component {
 
   constructor() {
     super();
     this.state = {
       jobTitle: "",
-      region: ""
+      region: "",
+      ranOnce: false,
     };
   }
 
@@ -22,15 +23,24 @@ export default class Header extends Component {
     });
   };
 
-  render() {
-    const {jobTitle, region} = this.state;
+  toggleClass = ()=>{
+    if (this.state.ranOnce){}else{
+    this.setState({ranOnce: true})}
+  }
 
+ wrapperFunction = () =>{
+this.toggleClass()
+this.props.handleSearch (this.state.jobTitle, this.state.region)
+ }
+
+  render() {
     return (
-      <div className="formSection">
+      <div className={this.state.ranOnce ? "formSection "   : "startPage"} 
+       >
         <label>Search for a job:</label>
-        <input placeholder={"Job title"} onChange={this.handleJobTitleChange} value={jobTitle}/>
-        <input placeholder={"Region, city"} onChange={this.handleRegionChange} value={region}/>
-        <button type="button" onClick={() => this.props.handleSearch(jobTitle, region)}>
+        <input placeholder={"Job title"} onChange={this.handleJobTitleChange} value={this.state.jobTitle}/>
+        <input placeholder={"Region, city"} onChange={this.handleRegionChange} value={this.state.region}/>
+        <button type="button" onClick={this.wrapperFunction}>
           Search
         </button>
       </div>

@@ -11,8 +11,7 @@ export default class App extends React.Component {
     this.state = {
       originalData: [],
       data: [],
-      loading: false,
-      ranOnce: false
+      loading: false
     };
   }
 
@@ -24,13 +23,12 @@ export default class App extends React.Component {
     )
       .then(response => response.json())
       .then(myJson => {
-        console.log(myJson);
         this.setState({ data: myJson, originalData: myJson, loading: false });
       });
   };
 
   filterByDate = date => {
-    const { originalData } = this.state;
+    const  originalData  = this.state.originalData; // instead of const {originalData = this.state} // not sure why it works now, though
     const result1 = originalData.filter(job => {
       const parsedCreatedAt = parse(
         job.created_at,
@@ -46,28 +44,20 @@ export default class App extends React.Component {
   };
 
   render() {
-    const { data } = this.state;
-    if (this.state.ranOnce === false) {
-      return (
-        <div className="startPage">
-          <Header handleSearch={this.Fetcher} />
-        </div>
-      );
-    }
-
     return (
       <div className="App">
         <header className="App-header">
-          <Header handleSearch={this.Fetcher} />
+          <Header handleSearch={this.Fetcher} jobTitle="" />
         </header>
-        <main>
+        <main className ="main"> 
         <Sidebar handleSearch={this.filterByDate}/>
-
+        <div className="feed">
           {this.state.loading ? (
-            <img src="https://static-steelkiwi-dev.s3.amazonaws.com/media/filer_public/4e/07/4e07eece-7c84-46e2-944d-1a6b856d7b5f/463ff844-6f36-4ffe-b051-fea983d39223.gif" />
+            <img alt="pingpongLoader" className="loader" src={require("./Images/loading.gif")}/>
           ) : (
-            <Feed data={data} />
+            <Feed data={this.state.data} />
           )}
+          </div>
         </main>
       </div>
     );

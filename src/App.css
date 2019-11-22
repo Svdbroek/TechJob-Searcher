@@ -21,19 +21,11 @@
   color: #09d3ac;
 }
 
-.startPage {
-display: flex;
-background-color: #282c34;
-position: fixed;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-overflow: auto;
-justify-content: center;
-align-items: center;
-font-size: 60px;
 
+.main{
+  display: flex;
 }
-
-
+.feed{
+width:-webkit-fill-available;
+justify-content: center;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {subDays, subWeeks, subMonths, format, parse} from 'date-fns'
-
+import './Sidebar.css'
 export default class Sidebar extends Component {
   constructor() {
     super();
@@ -23,7 +23,7 @@ export default class Sidebar extends Component {
   render() {
     const now = new Date();
     return (
-      <form>
+      <form className="form">
         <label>
           Added:
           <select value={this.state.value} onChange={this.handleChange}>

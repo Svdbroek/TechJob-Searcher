@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./JobAplication.css"
 import DescriptionBox from "./DescriptionBox";
-import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom"
+import { BrowserRouter as  Link } from "react-router-dom"
 
 
 export default class JobAplication extends Component {
@@ -18,7 +18,7 @@ export default class JobAplication extends Component {
             <ul>
 
               <b>Company: </b>
-              {this.props.company} <img width="30%" src={this.props.logo} />
+              {this.props.company} <img width="30%" src={this.props.logo} alt="logo" />
             </ul>
             <ul>
               <b>Location:</b> {this.props.location}

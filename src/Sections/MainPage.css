@@ -1,0 +1,31 @@
+.MainPage {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.MainPage-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: flex-right;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+
+.main{
+  display: flex;
+}
+.feed{
+width:-webkit-fill-available;
+justify-content: center;
+}

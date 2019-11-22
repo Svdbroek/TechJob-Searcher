@@ -18,6 +18,9 @@ export default class Feed extends Component {
             description={jobAdv.description}
             logo={jobAdv.company_logo}
             key={index}
+            id = {index}
+            jobSearch = {this.props.jobTitle}
+            locationSearch = {this.props.location}
           />
         ))}
       </div>

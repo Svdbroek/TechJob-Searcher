@@ -1,0 +1,19 @@
+.DetailsPage{
+  width: 90%;
+    margin: auto;
+    background-color: hsl(225, 3%, 28%);
+    color: white;
+
+    /* padding: 10px;
+    display: flex;
+  flex-flow: row wrap;
+  flex-direction: flex-right;
+  justify-content:  flex-start;*/
+
+}
+
+.logo{
+  width: 25%;
+  align-items: center;
+
+}

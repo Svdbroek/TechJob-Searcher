@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./DetailsPage.css"
 
 
 
@@ -17,22 +18,22 @@ import React, { Component } from 'react'
 
 
 export default class DetailsPage extends Component {
-    text = this.props.how_to_apply.replace(/<\/?[^>]+(>|$)/g, "");
 
     render() {
         return (
             <div className="DetailsPage">
                 <h1>{this.props.title}</h1>
                 <img alt='logo' className ="logo" src= {this.props.company_logo} /> 
-                <div className="description" dangerouslySetInnerHTML={{__html:this.props.description}} ></div>
                 <div className="detailsBox">
                    <p> <strong>Comapny: </strong> {this.props.company}</p>
                    <p> <strong>Location: </strong> {this.props.location}</p>
                    <p>{this.props.type}</p>
                    <p><strong>Created on: </strong> {this.props.created_at}</p>
-                   <p><strong>How to apply: </strong> {this.text}</p>
+                   <p><strong>How to apply: </strong> <tag dangerouslySetInnerHTML={{__html:this.props.how_to_apply}}></tag></p>
 
                 </div>
+                <div className="description" dangerouslySetInnerHTML={{__html:this.props.description}}></div>
+
             </div>
         )
     }
